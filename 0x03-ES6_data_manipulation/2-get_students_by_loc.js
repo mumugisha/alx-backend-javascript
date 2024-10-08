@@ -3,4 +3,4 @@ const getStudentsByLocation = (students, city) => {
   return filteredStudents;
 };
 
-export default getStudentsByLocation;
+export { getStudentsByLocation };
