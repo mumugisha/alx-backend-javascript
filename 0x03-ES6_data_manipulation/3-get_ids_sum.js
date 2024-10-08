@@ -1,3 +1,6 @@
-export const getStudentIdsSum = (students) => {
-    return students.reduce((acc, value) => acc + value.id, 0);
+export const getListStudentIds = (myStudentArray) => {
+  if (!Array.isArray(myStudentArray)) {
+    return [];
+  }
+  return myStudentArray.map((student) => student.id);
 };
