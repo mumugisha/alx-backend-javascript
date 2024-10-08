@@ -27,8 +27,9 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
+    'import/prefer-default-export': 'off',  // Added rule
   },
-  overrides:[
+  overrides: [
     {
       files: ['*.js'],
       excludedFiles: 'babel.config.js',
