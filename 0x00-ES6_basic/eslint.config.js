@@ -1,7 +1,6 @@
-import pluginJs from "@eslint/js";
+const pluginJs = require("@eslint/js");
 
-
-export default [
-  {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
+module.exports = [
+  { files: ["**/*.js"], languageOptions: { sourceType: "commonjs" } },
   pluginJs.configs.recommended,
 ];
