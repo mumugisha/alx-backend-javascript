@@ -4,7 +4,6 @@ function countStudents(FileName) {
   const students = {};
   const fields = {};
   let length = 0;
-
   return new Promise((resolve, reject) => {
     readFile(FileName, 'utf-8', (error, data) => {
       if (error) {
