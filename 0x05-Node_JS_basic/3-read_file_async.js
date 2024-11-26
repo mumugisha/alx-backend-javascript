@@ -10,13 +10,14 @@ function countStudents(FileName) {
       if (error) {
         reject(Error('Cannot load the database'));
         return;
-      } else {
-        const lines = data.toString().split('\n');
-        for (let i = 1; i < lines.length; i += 1) {
-          if (lines[i]) {
+      }
+      const lines = data.toString().split('\n');
+      for (let i = 1; i < lines.length; i += 1) {
+        if (lines[i].trim()) {
+          const field = lines[i].toString().split(',');
+          if (field.length >= 4) {
             length += 1;
 
-            const field = lines[i].toString().split(',');
             if (Object.prototype.hasOwnProperty.call(students, field[3])) {
               students[field[3]].push(field[0]);
             } else {
@@ -30,13 +31,12 @@ function countStudents(FileName) {
           }
         }
       }
-      const l = length - 1;
-      console.log(`Number of students: ${l}`);
+      console.log(`Number of students: ${length}`);
       for (const [key, value] of Object.entries(fields)) {
         if (key !== 'field') {
           console.log(
             `Number of students in ${key}: ${value}. ` +
-            `List: ${students[key].join(', ')}`
+            `List: ${students[key].join(', ')}`,
           );
         }
       }
