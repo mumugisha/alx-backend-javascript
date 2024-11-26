@@ -1,5 +1,5 @@
 // Create a function named displayMessage that prints in STDOUT the string argument.
-function displayMessage(data) {
+function displayMessage (data) {
   console.log(data);
 }
 
