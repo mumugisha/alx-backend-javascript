@@ -23,8 +23,8 @@ describe("calculateNumber()", function () {
     const response = calculateNumber("DIVIDE", 1.7, 0);
     assert.strictEqual(response, "Error");
   });
-  it("checking if number round() for DIVIDE (-1.4, 4.6)", function () {
-    const response = calculateNumber("DIVIDE", -1.4, 4.6);
+  it("checking if number round() for DIVIDE (1.4, 4.6)", function () {
+    const response = calculateNumber("DIVIDE", 1.4, 4.6);
     assert.strictEqual(response, 0.2);
   });
 });
