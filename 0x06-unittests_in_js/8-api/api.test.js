@@ -1,37 +1,28 @@
-const request = require('request');
-const expect = require('chai');
+const request = require("request");
+const {describe, it} = require("mocha");
+const {expect} = require("chai");
 
-describe('Index page', function () {
-  it('check the correct status code', function (done) {
-    request('http://localhost:3000', function (err, res, body) {
-      if (err) {
-        return done(err);
-      }
-      expect(res).to.have.property('statusCode');
-      expect(res.statusCode).to.equal(200); 
-      done();
-    });
+describe("Index page", function () {
+  const options = {
+      url: "http://localhost:7865/",
+      method: "GET"
+  };
+  it("check correct status code", function (done) {
+     request(options, function(err, res, body) {
+        expect(res.statusCode).to.equal(200);
+        done();
+     });
   });
-
-  it('check the correct content', function (done) {
-    request('http://localhost:3000', function (err, res, body) {
-      if (err) {
-        return done(err);
-      }
-      expect(body).to.be.a('string');
-      expect(body).to.include('Expected content here');
-      done();
-    });
+  it("check correct content", function (done) {
+     request(options, function(err, res, body) {
+        expect(body).to.contain("Welcome to the payment system");
+        done();
+     });
   });
-
-  it('check the correct content length', function (done) {
-    request('http://localhost:3000', function (err, res, body) {
-      if (err) {
-        return done(err);
-      }
-      expect(res.headers).to.have.property('content-length');
-      expect(Number(res.headers['content-length'])).to.be.greaterThan(0);
-      done();
-    });
+  it("check correct content length", function (done) {
+     request(options, function(err, res, body) {
+         expect(res.headers['content-length']).to.equal('29');
+         done();
+     });
   });
 });
