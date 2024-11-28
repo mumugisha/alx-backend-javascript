@@ -10,7 +10,7 @@ describe("sendPaymentRequestToApi", function () {
     try {
       sendPaymentRequestToApi(50, 24.52);
       assert(spy.calledOnce);
-      assert(spy.calledWith("SUM", 50, 24.52);
+      assert(spy.calledWith("SUM", 50, 24.52));
     } finally {
       spy.restore();
     }
