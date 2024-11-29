@@ -1,16 +1,16 @@
 const express = require('express');
 const app = express();
 
-app.use(express.json());
+const port = 7865;
 
-const port = 3000;
+app.use(express.json());
 
 app.get('/', (request, response) => {
   response.send('Welcome to the payment system');
 });
 
-app.get('/cart/:id([9]+)', (request, response) => {
-  response.send(`payment methods for cart ${request.params.id}`);
+app.get('/cart/:id([0-9]+)', (request, response) => {
+  response.send(`Payment methods for cart ${request.params.id}`);
 });
 
 app.get('/available_payments', (request, response) => {
