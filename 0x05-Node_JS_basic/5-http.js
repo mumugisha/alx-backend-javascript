@@ -4,12 +4,12 @@ const { readFile } = require('fs');
 const hostname = '127.0.0.1';
 const port = 1245;
 
-function countStudents(NameOfFile) {
+function countStudents(FileName) {
   const students = {};
   const fields = {};
   let length = 0;
   return new Promise((resolve, reject) => {
-    readFile(NameOfFile, (error, data) => {
+    readFile(FileName, (error, data) => {
       if (error) {
         reject(error);
       } else {
