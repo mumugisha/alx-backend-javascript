@@ -1,5 +1,5 @@
 const request = require("request");
-const { describe, it } = require("mocha");
+const {describe, it} = require("mocha");
 const expect = require("chai").expect;
 
 describe("Index page", function () {
@@ -7,14 +7,12 @@ describe("Index page", function () {
     url: "http://localhost:7865/",
     method: "GET",
   };
-
   it("check correct status code", function (done) {
     request(options, function (err, res, body) {
       expect(res.statusCode).to.equal(200);
       done();
     });
   });
-
   it("check correct content", function (done) {
     request(options, function (err, res, body) {
       expect(body).to.equal("Welcome to the payment system");
@@ -30,14 +28,12 @@ describe("Cart page", function () {
       done();
     });
   });
-
   it("check correct content for valid cart ID", function (done) {
     request.get("http://localhost:7865/cart/12", function (err, res, body) {
       expect(body).to.equal("Payment methods for cart 12");
       done();
     });
   });
-
   it("check correct status code for invalid cart ID", function (done) {
     request.get("http://localhost:7865/cart/kim", function (err, res, body) {
       expect(res.statusCode).to.equal(404);
@@ -60,7 +56,6 @@ describe("Available payments page", function () {
       }
     );
   });
-
   it("check correct body content for the endpoint", function (done) {
     const option = { json: true };
     const payload = {
@@ -98,7 +93,6 @@ describe("Login", function () {
       done();
     });
   });
-
   it("check correct content for a valid request", function (done) {
     const opts = {
       url: "http://localhost:7865/login",
@@ -116,7 +110,6 @@ describe("Login", function () {
       done();
     });
   });
-
   it("check correct status code for an invalid request", function (done) {
     const op = {
       url: "http://localhost:7865/login",
