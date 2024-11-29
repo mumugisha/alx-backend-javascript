@@ -1,7 +1,7 @@
 const readDatabase = require('../utils');
 
 class StudentsController {
-  static getAllStudents (request, response) {
+  static getAllStudents(request, response) {
     readDatabase(process.argv[2].toString())
       .then((students) => {
         const output = [];
@@ -10,8 +10,8 @@ class StudentsController {
         keys.sort();
         for (let a = 0; a < keys.length; a += 1) {
           output.push(
-            `Number of students in ${keys[a]}: ${students[keys[a]].length}. ` +
-            `List: ${students[keys[a]].join(', ')}`
+            `Number of students in ${keys[a]}: ${students[keys[a]].length}. `
+            + `List: ${students[keys[a]].join(', ')}`,
           );
         }
         response.status(200).send(output.join('\n'));
@@ -21,7 +21,7 @@ class StudentsController {
       });
   }
 
-  static getAllStudentsByMajor (request, response) {
+  static getAllStudentsByMajor(request, response) {
     const field = request.params.major;
     readDatabase(process.argv[2].toString())
       .then((students) => {
@@ -29,7 +29,7 @@ class StudentsController {
           response.status(500).send('Major parameter must be CS or SWE');
         } else {
           response.status(200).send(
-            `List: ${students[field].join(' / ')}`
+            `List: ${students[field].join(' / ')}`,
           );
         }
       })

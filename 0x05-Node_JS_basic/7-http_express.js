@@ -4,7 +4,7 @@ const { readFile } = require('fs');
 const app = express();
 const port = 1245;
 
-function countStudents (fileName) {
+function countStudents(fileName) {
   const students = {};
   const fields = {};
   let totalStudents = 0;
@@ -59,7 +59,7 @@ app.get('/students', (request, response) => {
     })
     .catch(() => {
       response.send(
-        'This is the list of our students\nCannot load the database'
+        'This is the list of our students\nCannot load the database',
       );
     });
 });
