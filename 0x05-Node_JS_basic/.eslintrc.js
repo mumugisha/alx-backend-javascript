@@ -26,7 +26,22 @@ module.exports = {
       'error',
       'LabeledStatement',
       'WithStatement'
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never'
+      }
     ]
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.json']
+      }
+    }
   },
   overrides: [
     {

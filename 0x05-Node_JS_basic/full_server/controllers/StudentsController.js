@@ -29,7 +29,7 @@ class StudentsController {
           response.status(500).send('Major parameter must be CS or SWE');
         } else {
           response.status(200).send(
-            `List: ${students[field].join(' / ')}`,
+            `List: ${students[field].join(', ')}`,
           );
         }
       })
