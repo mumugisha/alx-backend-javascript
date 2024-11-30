@@ -31,7 +31,7 @@ function countStudents(FileName) {
             }
           }
         }
-        length -= 1; // Adjusting for header row
+        length -= 1;
         output += `Number of students: ${length}\n`;
         for (const [key, value] of Object.entries(fields)) {
           if (key !== 'field') {
